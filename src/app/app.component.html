@@ -1,24 +1,27 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar is-transparent">
+<!--The content below is only a placeholder and can be replaced. (is-transparent, )-->
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <!-- navbar-brand the left side, always visible, which usually contains the logo and optionally some links or icons -->
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
       <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
     </a>
-    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+    <!-- the hamburger icon, which toggles the navbar menu on touch devices -->
+    <div class="navbar-burger burger" data-target="navbar-menu-data">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </div>
-
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
+  <!-- navbar-menu the right side, hidden on touch devices, visible on desktop -->
+  <div id="navbar-menu-data" class="navbar-menu">
+    <!-- navbar-start the left part of the menu, which appears next to the navbar brand on desktop -->
     <div class="navbar-start">
-      <a class="navbar-item" href="https://bulma.io/">
+      <a class="navbar-item" href="#">
         Home
       </a>
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="/documentation/overview/start/">
-          Docs
+        <a class="navbar-link" href="/faq">
+          FAQ
         </a>
         <div class="navbar-dropdown is-boxed">
           <a class="navbar-item" href="/documentation/overview/start/">
@@ -27,26 +30,11 @@
           <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
             Modifiers
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
         </div>
       </div>
     </div>
 
+    <!-- navbar-end the right part of the menu, which appears at the end of the navbar -->
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
@@ -78,6 +66,7 @@
   <h2 *ngIf="production">We are running in production!</h2>
   <h2 *ngIf="!production">We are running in development...</h2>
 </router-outlet>
+
 
 <footer class="footer is-primary">
   <div class="container">
