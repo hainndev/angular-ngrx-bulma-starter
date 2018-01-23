@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './components';
-import { routes } from './home.routing'
+import { FaqComponent } from './components';
+import { routes } from './faq.routing'
 
 @NgModule({
     imports: [
@@ -11,7 +11,7 @@ import { routes } from './home.routing'
         RouterModule.forChild(routes)
     ],
     exports: [],
-    declarations: [HomeComponent],
+    declarations: [FaqComponent],
     providers: [],
 })
-export class HomeModule { }
+export class FaqModule { }

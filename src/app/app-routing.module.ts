@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './features/home/components';
-import { FaqComponent } from './features/faq/faq.component';
+import { FaqComponent } from './features/faq/components';
 
 const routes: Routes = [
   {
@@ -9,8 +9,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'home',
+    loadChildren: './features/home/home.module#HomeModule'
+  },
+  {
     path: 'faq',
-    component: FaqComponent
+    loadChildren: './features/faq/faq.module#FaqModule'
   }
 ];
 

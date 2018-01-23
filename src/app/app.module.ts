@@ -5,14 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './features/home/components';
-import { FaqComponent } from './features/faq/faq.component';
+import {}
 
 
 @NgModule({
   declarations: [
-    AppComponent,
     HomeComponent,
-    FaqComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
