@@ -1,5 +1,4 @@
 import { ActionReducer, Action, createFeatureSelector } from '@ngrx/store';
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
 
 import {BookActionTypes, BookActions} from '../actions';
 import { Book } from './../../../share/models';

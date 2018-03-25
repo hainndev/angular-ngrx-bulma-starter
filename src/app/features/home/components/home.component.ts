@@ -18,10 +18,7 @@ export class HomeComponent implements OnInit {
   public books$: Observable<Book[]>;
 
   constructor(public store: Store<fromRoot.State>) {
-    this.books$ = store.pipe(select(fromRoot.getBooks));
-    this.books$.subscribe(item => {
-        log('data: '+ JSON.stringify(item));
-    }); 
+    this.books$ = store.select(fromRoot.getBooks);
    }
 
   ngOnInit() {
