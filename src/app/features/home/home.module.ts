@@ -15,8 +15,6 @@ import { BookService } from './services/book.service';
 @NgModule({
     imports: [
         CommonModule,
-        StoreModule.forFeature('book', reducer),
-        EffectsModule.forFeature([SearchBookEffects]),
         RouterModule.forChild(routes),
         /**
          * StoreModule.forFeature is used for composing state
@@ -24,7 +22,7 @@ import { BookService } from './services/book.service';
          * eagerly or lazily and will be dynamically added to
          * the existing state.
          */
-        //StoreModule.forFeature('home', reducers),
+        StoreModule.forFeature('book', reducer),
         
         /**
          * Effects.forFeature is used to register effects
@@ -34,7 +32,7 @@ import { BookService } from './services/book.service';
          * All Effects will only be instantiated once regardless of
          * whether they are registered once or multiple times.
          */
-        //EffectsModule.forFeature([SearchBookEffects])
+        EffectsModule.forFeature([SearchBookEffects]),
     ],
     exports: [],
     declarations: [HomeComponent],
