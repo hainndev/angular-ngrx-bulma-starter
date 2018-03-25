@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
-import * as fromRoot from '../reducers';
+import * as fromRoot from '../reducers/book.reducer';
 import { Search } from '../actions'
 import { Observable } from 'rxjs/Observable';
 
@@ -18,7 +18,10 @@ export class HomeComponent implements OnInit {
   public books$: Observable<Book[]>;
 
   constructor(public store: Store<fromRoot.State>) {
-    this.books$ = store.pipe(select(fromRoot.searchBooks)); 
+    this.books$ = store.pipe(select(fromRoot.getBooks));
+    this.books$.subscribe(item => {
+        log('data: '+ JSON.stringify(item));
+    }); 
    }
 
   ngOnInit() {

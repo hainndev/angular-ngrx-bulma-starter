@@ -2,20 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './features/home/components';
+import { HomeModule } from './features/home/home.module';
 
-import { BookService } from './features/home/services/book.service';
-import { SearchBookEffects } from './features/home/effects/book.effect'
+//import { SearchBookEffects } from './features/home/effects/book.effect'
 import { reducers } from './features/home/reducers'
 
 @NgModule({
   declarations: [
-    HomeComponent,
     AppComponent
   ],
   imports: [
@@ -23,6 +22,10 @@ import { reducers } from './features/home/reducers'
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
+    // Instrumentation must be imported after importing StoreModule (config is optional)
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
     /**
      * EffectsModule.forRoot() is imported once in the root module and
      * sets up the effects class to be initialized immediately when the
@@ -30,10 +33,11 @@ import { reducers } from './features/home/reducers'
      *
      * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
      */
-    EffectsModule.forRoot([SearchBookEffects]),
+    EffectsModule.forRoot([]),
+    HomeModule,
   ],
   exports: [StoreModule],
-  providers: [BookService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

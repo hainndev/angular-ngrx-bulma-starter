@@ -7,11 +7,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { HomeComponent } from './components';
 import { routes } from './home.routing'
 import { reducers } from './reducers'
+import { reducer } from './reducers/book.reducer'
 import { SearchBookEffects } from './effects/book.effect'
+
+import { BookService } from './services/book.service';
 
 @NgModule({
     imports: [
         CommonModule,
+        StoreModule.forFeature('book', reducer),
+        EffectsModule.forFeature([SearchBookEffects]),
         RouterModule.forChild(routes),
         /**
          * StoreModule.forFeature is used for composing state
@@ -33,6 +38,6 @@ import { SearchBookEffects } from './effects/book.effect'
     ],
     exports: [],
     declarations: [HomeComponent],
-    providers: [],
+    providers: [BookService],
 })
 export class HomeModule { }
