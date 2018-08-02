@@ -1,4 +1,4 @@
-import { ActionReducer, Action, createFeatureSelector } from '@ngrx/store';
+import { ActionReducer, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 
 import {BookActionTypes, BookActions} from '../actions';
 import { Book } from './../../../share/models';
@@ -47,8 +47,12 @@ export function reducer(state: State = initialState, action: BookActions) {
         default: {
             return state;
         }
-            
+
     }
 }
 
-export const getBooks = (state: State) => state.books;
+export const getBookState = createFeatureSelector<State>('book');
+export const getBooks = createSelector(
+  getBookState,
+  ({ books }: State) => books
+);

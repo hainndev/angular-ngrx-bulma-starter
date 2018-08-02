@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
 import * as fromRoot from '../reducers/book.reducer';
-import { Search } from '../actions'
+import { Search } from '../actions';
 import { Observable } from 'rxjs/Observable';
 
-import { Book } from '../../../share/models'
-import { log } from 'util';
+import { Book } from '../../../share/models';
 
 @Component({
   selector: 'app-home',
@@ -16,16 +15,19 @@ import { log } from 'util';
 export class HomeComponent implements OnInit {
 
   public books$: Observable<Book[]>;
-
+  private books: Book[] = [];
   constructor(public store: Store<fromRoot.State>) {
     this.books$ = store.select(fromRoot.getBooks);
-   }
-
-  ngOnInit() {
   }
 
-  search($event):void {
-    log("SEARCH BOOOKS GOOO: "+ $event);
+  ngOnInit() {
+    this.books$.subscribe(books => {
+      this.books = books;
+    });
+  }
+
+  search($event): void {
+    // log("SEARCH BOOOKS GOOO: "+ $event);
     this.store.dispatch(new Search($event));
   }
 

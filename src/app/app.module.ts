@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './features/home/home.module';
 
-//import { SearchBookEffects } from './features/home/effects/book.effect'
-import { reducers } from './features/home/reducers'
+import { reducers, metaReducers } from './features/home/reducers';
+import { initialState } from './features/home/reducers/book.reducer';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { reducers } from './features/home/reducers'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, { initialState: initialState, metaReducers }),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25,
